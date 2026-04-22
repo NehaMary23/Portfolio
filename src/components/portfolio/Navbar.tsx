@@ -19,7 +19,7 @@ export function Navbar() {
       <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 font-display text-xl tracking-tight">
           <span className="inline-block h-2.5 w-2.5 rounded-full bg-foreground" />
-          Shourya<span className="text-muted-foreground">.</span>
+          Neha<span className="text-muted-foreground">.</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">

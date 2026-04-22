@@ -5,9 +5,9 @@ import { Award } from "lucide-react";
 export const Route = createFileRoute("/certificates")({
   head: () => ({
     meta: [
-      { title: "Certificates & Achievements — Shourya Khanna" },
-      { name: "description", content: "Certificates, courses, and achievements earned by Shourya Khanna." },
-      { property: "og:title", content: "Certificates & Achievements — Shourya Khanna" },
+      { title: "Certificates & Achievements — Neha Mary Pramod" },
+      { name: "description", content: "Certificates, courses, and achievements earned by Neha Mary Pramod." },
+      { property: "og:title", content: "Certificates & Achievements — Neha Mary Pramod" },
       { property: "og:description", content: "Certificates, courses, and achievements." },
     ],
   }),

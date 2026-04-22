@@ -6,10 +6,10 @@ import avatar from "@/assets/avatar.png";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Shourya Khanna" },
-      { name: "description", content: "Get to know Shourya Khanna — a passionate full-stack developer focused on intuitive, impactful digital experiences." },
-      { property: "og:title", content: "About — Shourya Khanna" },
-      { property: "og:description", content: "Get to know Shourya Khanna — passionate full-stack developer." },
+      { title: "About — Neha Mary Pramod" },
+      { name: "description", content: "Get to know Neha Mary Pramod — a passionate full-stack developer focused on intuitive, impactful digital experiences." },
+      { property: "og:title", content: "About — Neha Mary Pramod" },
+      { property: "og:description", content: "Get to know Neha Mary Pramod — passionate full-stack developer." },
     ],
   }),
   component: AboutPage,
@@ -31,7 +31,7 @@ function AboutPage() {
 
         <div className="mt-12 grid md:grid-cols-[260px_1fr] gap-10 items-start">
           <div className="rounded-3xl overflow-hidden border border-border/60 bg-secondary/40 shadow-[var(--shadow-card)]">
-            <img src={avatar} alt="Shourya Khanna" className="w-full h-auto block" />
+            <img src={avatar} alt="Neha Mary Pramod" className="w-full h-auto block" />
           </div>
 
           <div className="space-y-5 text-lg text-muted-foreground leading-relaxed">

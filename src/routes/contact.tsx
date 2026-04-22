@@ -5,9 +5,9 @@ import { Mail, Linkedin, Github, ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Shourya Khanna" },
-      { name: "description", content: "Get in touch with Shourya Khanna for collaborations, projects, and opportunities." },
-      { property: "og:title", content: "Contact — Shourya Khanna" },
+      { title: "Contact — Neha Mary Pramod" },
+      { name: "description", content: "Get in touch with Neha Mary Pramod for collaborations, projects, and opportunities." },
+      { property: "og:title", content: "Contact — Neha Mary Pramod" },
       { property: "og:description", content: "Let's connect — collaborations, projects, and opportunities." },
     ],
   }),
@@ -15,9 +15,9 @@ export const Route = createFileRoute("/contact")({
 });
 
 const channels = [
-  { icon: Mail, label: "Email", value: "hello@shourya.dev", href: "mailto:hello@shourya.dev", desc: "Get in touch via email" },
-  { icon: Linkedin, label: "LinkedIn", value: "shourya-khanna", href: "https://linkedin.com", desc: "Connect with me professionally" },
-  { icon: Github, label: "GitHub", value: "shouryakhanna", href: "https://github.com", desc: "Check out my code on GitHub" },
+  { icon: Mail, label: "Email", value: "hello@nehamary.dev", href: "mailto:hello@nehamary.dev", desc: "Get in touch via email" },
+  { icon: Linkedin, label: "LinkedIn", value: "neha-mary-pramod", href: "https://linkedin.com", desc: "Connect with me professionally" },
+  { icon: Github, label: "GitHub", value: "nehamary", href: "https://github.com", desc: "Check out my code on GitHub" },
 ];
 
 function ContactPage() {

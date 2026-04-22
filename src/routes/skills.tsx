@@ -4,10 +4,10 @@ import { Layout } from "@/components/portfolio/Layout";
 export const Route = createFileRoute("/skills")({
   head: () => ({
     meta: [
-      { title: "Skills — Shourya Khanna" },
-      { name: "description", content: "A comprehensive overview of Shourya's technical expertise across frontend, backend, and tooling." },
-      { property: "og:title", content: "Skills — Shourya Khanna" },
-      { property: "og:description", content: "Frontend, backend, languages and tools — Shourya's stack." },
+      { title: "Skills — Neha Mary Pramod" },
+      { name: "description", content: "A comprehensive overview of Neha's technical expertise across frontend, backend, and tooling." },
+      { property: "og:title", content: "Skills — Neha Mary Pramod" },
+      { property: "og:description", content: "Frontend, backend, languages and tools — Neha's stack." },
     ],
   }),
   component: SkillsPage,

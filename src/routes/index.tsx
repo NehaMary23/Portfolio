@@ -7,9 +7,9 @@ import { Layout } from "@/components/portfolio/Layout";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Neha Mary Pramod — Portfolio '25" },
+      { title: "Neha Mary Pramod — Portfolio '26" },
       { name: "description", content: "Full Stack Web Developer crafting beautiful, high-performance web applications with modern technologies." },
-      { property: "og:title", content: "Neha Mary Pramod — Portfolio '25" },
+      { property: "og:title", content: "Neha Mary Pramod — Portfolio '26" },
       { property: "og:description", content: "Full Stack Web Developer crafting beautiful, high-performance web applications." },
     ],
   }),
@@ -25,7 +25,7 @@ function Index() {
           <div className="rounded-3xl bg-card shadow-[var(--shadow-soft)] border border-border/60 overflow-hidden">
             <img
               src={heroImg}
-              alt="Neha Mary Pramod — Portfolio 2025 illustrated hero"
+              alt="Neha Mary Pramod — Portfolio 2026 illustrated hero"
               className="w-full h-auto block"
               loading="eager"
             />

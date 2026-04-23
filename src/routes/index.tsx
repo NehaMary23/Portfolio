@@ -92,26 +92,30 @@ function Index() {
       {/* HERO SECTION */}
       <section
         id="home"
-        className="relative overflow-hidden bg-background"
+        className="relative overflow-hidden"
+        style={{ backgroundColor: "#f1e7df" }}
       >
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 pt-4 pb-12 md:pt-8 md:pb-16">
+        {/* Full-bleed hero artwork — image is the section, not an inserted card */}
+        <div className="w-full">
           {/* Desktop / large screens: landscape composition */}
           <img
             src={heroLandscape}
             alt="Portfolio '26 — Neha Mary Pramod"
-            className="hidden md:block w-full h-auto rounded-3xl shadow-[var(--shadow-card)]"
+            className="hidden md:block w-full h-auto select-none"
             loading="eager"
           />
           {/* Mobile / tablet: portrait composition */}
           <img
             src={heroPortrait}
             alt="Portfolio '26 — Neha Mary Pramod"
-            className="block md:hidden w-full h-auto rounded-3xl shadow-[var(--shadow-card)]"
+            className="block md:hidden w-full h-auto select-none"
             loading="eager"
           />
+        </div>
 
-          {/* Intro block */}
-          <div className="mt-10 grid md:grid-cols-[1.2fr_1fr] gap-8 items-start">
+        {/* Intro block */}
+        <div className="mx-auto max-w-6xl px-6 pt-12 pb-16">
+          <div className="grid md:grid-cols-[1.2fr_1fr] gap-8 items-start">
             <div>
               <span className="inline-block px-3 py-1 rounded-full bg-secondary text-xs font-semibold tracking-widest uppercase text-secondary-foreground">
                 Welcome to my portfolio

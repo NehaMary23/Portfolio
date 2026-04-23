@@ -1,8 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
   Award,
+  ChevronLeft,
+  ChevronRight,
   Code2,
   Download,
   ExternalLink,
@@ -94,6 +97,11 @@ const channels = [
 ];
 
 function Index() {
+  const PAGE_SIZE = 9;
+  const [certPage, setCertPage] = useState(0);
+  const certPageCount = Math.max(1, Math.ceil(certs.length / PAGE_SIZE));
+  const visibleCerts = certs.slice(certPage * PAGE_SIZE, certPage * PAGE_SIZE + PAGE_SIZE);
+
   return (
     <Layout>
       {/* HERO SECTION */}
@@ -341,11 +349,40 @@ function Index() {
       {/* CERTIFICATES SECTION */}
       <section id="certificates" className="scroll-mt-24">
         <div className="mx-auto max-w-6xl px-6 py-20 border-t border-border/60">
-          <p className="text-sm uppercase tracking-widest text-muted-foreground">Recognition</p>
-          <h2 className="mt-2 text-5xl md:text-6xl font-display">Certificates.</h2>
+          <div className="flex items-end justify-between gap-4 flex-wrap">
+            <div>
+              <p className="text-sm uppercase tracking-widest text-muted-foreground">Recognition</p>
+              <h2 className="mt-2 text-5xl md:text-6xl font-display">Certificates.</h2>
+            </div>
+            {certPageCount > 1 && (
+              <div className="flex items-center gap-3">
+                <span className="text-sm text-muted-foreground font-mono">
+                  {certPage + 1} / {certPageCount}
+                </span>
+                <button
+                  type="button"
+                  aria-label="Previous certificates"
+                  onClick={() => setCertPage((p) => Math.max(0, p - 1))}
+                  disabled={certPage === 0}
+                  className="h-11 w-11 rounded-full border border-foreground/20 flex items-center justify-center hover:bg-secondary transition disabled:opacity-40 disabled:cursor-not-allowed"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  type="button"
+                  aria-label="Next certificates"
+                  onClick={() => setCertPage((p) => Math.min(certPageCount - 1, p + 1))}
+                  disabled={certPage >= certPageCount - 1}
+                  className="h-11 w-11 rounded-full bg-foreground text-background flex items-center justify-center hover:opacity-90 transition disabled:opacity-40 disabled:cursor-not-allowed"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </div>
+            )}
+          </div>
 
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {certs.map((c) => (
+            {visibleCerts.map((c) => (
               <div key={c} className="p-6 rounded-2xl bg-card border border-border/60 shadow-[var(--shadow-card)] flex gap-4 items-start">
                 <div className="h-10 w-10 rounded-xl bg-secondary flex items-center justify-center shrink-0">
                   <Award className="h-5 w-5" />

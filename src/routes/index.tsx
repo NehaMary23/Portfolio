@@ -177,37 +177,16 @@ function Index() {
           <p className="text-sm uppercase tracking-widest text-muted-foreground">About</p>
           <h2 className="mt-2 text-5xl md:text-6xl font-display">Get to know me better.</h2>
 
-          {/* Bio paragraphs */}
-          <div className="mt-10 max-w-3xl space-y-5 text-lg text-muted-foreground leading-relaxed">
-            <p>
-              I'm a passionate full-stack web developer with a strong interest in
-              creating intuitive and impactful digital experiences. I thrive on
-              building applications that are not only visually appealing but also
-              efficient and user-friendly.
-            </p>
-            <p>
-              My journey in web development began with curiosity and has grown
-              into a commitment to continuous learning. I stay updated with the
-              latest technologies and best practices in the ever-evolving tech
-              landscape.
-            </p>
-            <p>
-              Beyond code, I'm driven by collaboration, knowledge sharing, and
-              tackling challenges that push me to grow both technically and
-              creatively.
-            </p>
-          </div>
-
-          {/* ID card + traits side-by-side, bottoms aligned */}
-          <div className="mt-12 grid lg:grid-cols-[300px_1fr] gap-8 items-stretch">
+          {/* ID card on left (all screens) — bio + traits on right */}
+          <div className="mt-12 grid grid-cols-[180px_1fr] sm:grid-cols-[240px_1fr] lg:grid-cols-[300px_1fr] gap-5 sm:gap-8 items-start">
             {/* ID Card */}
-            <div className="relative mx-auto lg:mx-0 w-[280px] flex flex-col">
+            <div className="relative w-full max-w-[280px] flex flex-col">
               <div className="mx-auto h-10 w-1.5 bg-foreground/70 rounded-b-sm" aria-hidden />
               <div className="mx-auto -mt-1 h-3 w-10 rounded-md bg-foreground/80 shadow-sm" aria-hidden />
               <div className="mt-2 flex-1 rounded-2xl bg-card border border-border/60 shadow-[var(--shadow-soft)] overflow-hidden flex flex-col">
                 <div className="flex items-center justify-between px-4 py-2 bg-foreground text-background">
-                  <span className="text-[10px] font-semibold tracking-[0.2em] uppercase">Portfolio · 2026</span>
-                  <span className="text-[10px] font-mono opacity-80">ID 026</span>
+                  <span className="text-[9px] sm:text-[10px] font-semibold tracking-[0.2em] uppercase">Portfolio · 2026</span>
+                  <span className="text-[9px] sm:text-[10px] font-mono opacity-80">ID 026</span>
                 </div>
                 <div className="p-3 flex-1 flex flex-col">
                   <div className="aspect-[3/4] w-full rounded-lg overflow-hidden bg-secondary">
@@ -220,9 +199,9 @@ function Index() {
                   </div>
                   <div className="mt-3 px-1">
                     <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Name</p>
-                    <p className="font-display text-lg leading-tight">Neha Mary Pramod</p>
+                    <p className="font-display text-base sm:text-lg leading-tight">Neha Mary Pramod</p>
                     <p className="mt-2 text-[10px] uppercase tracking-widest text-muted-foreground">Role</p>
-                    <p className="text-sm">Full Stack Developer</p>
+                    <p className="text-xs sm:text-sm">Full Stack Developer</p>
                   </div>
                   <div className="mt-auto pt-3 mx-1">
                     <div className="h-6 rounded bg-[repeating-linear-gradient(90deg,var(--foreground)_0_2px,transparent_2px_5px)] opacity-80" aria-hidden />
@@ -231,20 +210,42 @@ function Index() {
               </div>
             </div>
 
-            {/* Trait cards — fill the same height as the ID card */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-full">
-              {traits.map((t) => (
-                <div
-                  key={t.title}
-                  className="p-6 rounded-2xl bg-card border border-border/60 shadow-[var(--shadow-card)] flex flex-col"
-                >
-                  <div className="h-10 w-10 rounded-xl bg-secondary flex items-center justify-center">
-                    <t.icon className="h-5 w-5 text-foreground" />
+            {/* Right column: bio paragraphs + trait cards */}
+            <div className="flex flex-col gap-8">
+              <div className="space-y-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
+                <p>
+                  I'm a passionate full-stack web developer with a strong interest in
+                  creating intuitive and impactful digital experiences. I thrive on
+                  building applications that are not only visually appealing but also
+                  efficient and user-friendly.
+                </p>
+                <p>
+                  My journey in web development began with curiosity and has grown
+                  into a commitment to continuous learning. I stay updated with the
+                  latest technologies and best practices in the ever-evolving tech
+                  landscape.
+                </p>
+                <p>
+                  Beyond code, I'm driven by collaboration, knowledge sharing, and
+                  tackling challenges that push me to grow both technically and
+                  creatively.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                {traits.map((t) => (
+                  <div
+                    key={t.title}
+                    className="p-4 sm:p-6 rounded-2xl bg-card border border-border/60 shadow-[var(--shadow-card)] flex flex-col"
+                  >
+                    <div className="h-9 w-9 sm:h-10 sm:w-10 rounded-xl bg-secondary flex items-center justify-center">
+                      <t.icon className="h-4 w-4 sm:h-5 sm:w-5 text-foreground" />
+                    </div>
+                    <h3 className="mt-3 sm:mt-4 font-display text-base sm:text-xl">{t.title}</h3>
+                    <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-muted-foreground">{t.desc}</p>
                   </div>
-                  <h3 className="mt-4 font-display text-xl">{t.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{t.desc}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>

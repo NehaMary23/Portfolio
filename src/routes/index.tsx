@@ -456,6 +456,41 @@ function Index() {
           </div>
         </div>
       </section>
+
+      {/* ACHIEVEMENT LIGHTBOX */}
+      {openAchievement && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={openAchievement.title}
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-foreground/80 backdrop-blur-sm"
+          onClick={() => setOpenAchievement(null)}
+        >
+          <div
+            className="relative max-w-3xl w-full rounded-2xl overflow-hidden bg-card shadow-[var(--shadow-soft)]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              aria-label="Close"
+              onClick={() => setOpenAchievement(null)}
+              className="absolute top-3 right-3 z-10 h-9 w-9 rounded-full bg-background/90 hover:bg-background flex items-center justify-center shadow"
+            >
+              <X className="h-4 w-4" />
+            </button>
+            <img
+              src={openAchievement.image}
+              alt={openAchievement.title}
+              className="w-full max-h-[75vh] object-contain bg-secondary"
+            />
+            <div className="p-5">
+              <span className="text-xs uppercase tracking-widest text-muted-foreground">{openAchievement.level}</span>
+              <h4 className="mt-1 font-display text-2xl">{openAchievement.title}</h4>
+              <p className="mt-2 text-sm text-muted-foreground">{openAchievement.desc}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }

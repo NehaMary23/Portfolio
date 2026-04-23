@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect, useRef } from "react";
-import resumePdf from "@/assets/Neha_Resume.pdf";
+import resumePdf from "@/assets/NehaMaryPramod-Resume.pdf";
 import {
   SiNextdotjs,
   SiReact,

@@ -56,7 +56,7 @@ export function Navbar() {
     }
 
     window.addEventListener("resize", handleResize);
-    
+
     return () => {
       resizeObserver.disconnect();
       window.removeEventListener("resize", handleResize);
@@ -82,7 +82,8 @@ export function Navbar() {
           className="flex items-center gap-2 font-display text-xl tracking-tight whitespace-nowrap"
         >
           <span className="inline-block h-2.5 w-2.5 rounded-full bg-foreground" />
-          Neha{(showFullName || open) && <span> Mary Pramod</span>}<span className="text-muted-foreground">.</span>
+          Neha{(showFullName || open) && <span> Mary Pramod</span>}
+          <span className="text-muted-foreground"></span>
         </a>
 
         <nav className="hidden md:flex items-center gap-1">

@@ -12,7 +12,8 @@ import {
   Target,
   Users,
 } from "lucide-react";
-import character from "@/assets/neha-character.png";
+import heroLandscape from "@/assets/hero-landscape.png";
+import heroPortrait from "@/assets/hero-portrait.png";
 import nehaPhoto from "@/assets/neha-photo.jpeg";
 import { Layout } from "@/components/portfolio/Layout";
 
@@ -93,38 +94,21 @@ function Index() {
         id="home"
         className="relative overflow-hidden bg-background"
       >
-        <div className="mx-auto max-w-6xl px-6 pt-6 pb-12 md:pt-10 md:pb-16">
-          <div className="relative h-[420px] sm:h-[520px] md:h-[640px] lg:h-[700px]">
-            {/* Vertical side label */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 -rotate-90 origin-left tracking-[0.4em] text-[10px] md:text-xs uppercase text-muted-foreground/70 select-none">
-              Neha Mary Pramod · 26
-            </div>
-
-            {/* Massive PORTFOLIO typography behind */}
-            <h1
-              aria-label="Portfolio 2026"
-              className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center font-display leading-[0.85] text-foreground select-none"
-              style={{ fontSize: "clamp(5rem, 22vw, 18rem)", letterSpacing: "-0.04em" }}
-            >
-              PORTFOLIO
-            </h1>
-
-            {/* Year mark */}
-            <span
-              className="absolute right-2 md:right-6 top-2 md:top-6 font-display text-foreground"
-              style={{ fontSize: "clamp(1.5rem, 3vw, 2.75rem)" }}
-            >
-              '26
-            </span>
-
-            {/* Character cutout, floats above typography */}
-            <img
-              src={character}
-              alt="Illustrated portrait of Neha Mary Pramod"
-              className="absolute left-1/2 -translate-x-1/2 bottom-0 h-[95%] w-auto object-contain drop-shadow-[0_30px_40px_oklch(0.18_0.02_60_/_0.18)]"
-              loading="eager"
-            />
-          </div>
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 pt-4 pb-12 md:pt-8 md:pb-16">
+          {/* Desktop / large screens: landscape composition */}
+          <img
+            src={heroLandscape}
+            alt="Portfolio '26 — Neha Mary Pramod"
+            className="hidden md:block w-full h-auto rounded-3xl shadow-[var(--shadow-card)]"
+            loading="eager"
+          />
+          {/* Mobile / tablet: portrait composition */}
+          <img
+            src={heroPortrait}
+            alt="Portfolio '26 — Neha Mary Pramod"
+            className="block md:hidden w-full h-auto rounded-3xl shadow-[var(--shadow-card)]"
+            loading="eager"
+          />
 
           {/* Intro block */}
           <div className="mt-10 grid md:grid-cols-[1.2fr_1fr] gap-8 items-start">

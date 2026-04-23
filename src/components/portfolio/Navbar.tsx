@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Menu, X } from "lucide-react";
 
 const links = [
@@ -7,12 +7,15 @@ const links = [
   { hash: "projects", label: "Projects" },
   { hash: "skills", label: "Skills" },
   { hash: "certificates", label: "Certificates" },
+  { hash: "achievements", label: "Achievements" },
   { hash: "contact", label: "Contact" },
 ] as const;
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("home");
+  const [showFullName, setShowFullName] = useState(true);
+  const navRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ids = links.map((l) => l.hash);
@@ -32,6 +35,34 @@ export function Navbar() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (navRef.current) {
+        const navWidth = navRef.current.offsetWidth;
+        // Show full name if width is greater than 400px (enough space)
+        // This accounts for small mobile devices
+        setShowFullName(navWidth > 400);
+      }
+    };
+
+    // Use ResizeObserver for more accurate tracking
+    const resizeObserver = new ResizeObserver(() => {
+      handleResize();
+    });
+
+    if (navRef.current) {
+      resizeObserver.observe(navRef.current);
+      handleResize(); // Initial check
+    }
+
+    window.addEventListener("resize", handleResize);
+    
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const handleClick = (hash: string) => (e: React.MouseEvent) => {
     e.preventDefault();
     const el = document.getElementById(hash);
@@ -44,14 +75,14 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-[oklch(0.985_0.008_85_/_0.75)] border-b border-border/60">
-      <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
+      <div ref={navRef} className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
         <a
           href="#home"
           onClick={handleClick("home")}
-          className="flex items-center gap-2 font-display text-xl tracking-tight"
+          className="flex items-center gap-2 font-display text-xl tracking-tight whitespace-nowrap"
         >
           <span className="inline-block h-2.5 w-2.5 rounded-full bg-foreground" />
-          Neha<span className="text-muted-foreground">.</span>
+          Neha{(showFullName || open) && <span> Mary Pramod</span>}<span className="text-muted-foreground">.</span>
         </a>
 
         <nav className="hidden md:flex items-center gap-1">

@@ -1,3 +1,6 @@
+/* stylelint-disable at-rule-no-unknown */
+/* Tailwind CSS v4 uses custom directives: @import, @source, @theme, @custom-variant */
+
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -64,19 +67,19 @@
 :root {
   --radius: 0.625rem;
   /* Cream / playful editorial palette inspired by hero image */
-  --background: oklch(0.985 0.008 85);          /* warm cream #fcfbf6-ish */
-  --foreground: oklch(0.18 0.02 60);            /* near-black warm */
+  --background: oklch(0.985 0.008 85); /* warm cream #fcfbf6-ish */
+  --foreground: oklch(0.18 0.02 60); /* near-black warm */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.18 0.02 60);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0.02 60);
-  --primary: oklch(0.18 0.02 60);               /* bold black for typography */
+  --primary: oklch(0.18 0.02 60); /* bold black for typography */
   --primary-foreground: oklch(0.985 0.008 85);
-  --secondary: oklch(0.93 0.025 75);            /* soft beige */
+  --secondary: oklch(0.93 0.025 75); /* soft beige */
   --secondary-foreground: oklch(0.18 0.02 60);
   --muted: oklch(0.95 0.015 80);
   --muted-foreground: oklch(0.45 0.03 60);
-  --accent: oklch(0.78 0.07 70);                /* warm tan accent */
+  --accent: oklch(0.78 0.07 70); /* warm tan accent */
   --accent-foreground: oklch(0.18 0.02 60);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0.008 85);
@@ -88,7 +91,7 @@
   --brand-cream: oklch(0.985 0.008 85);
   --brand-ink: oklch(0.16 0.02 60);
   --brand-tan: oklch(0.78 0.07 70);
-  --brand-rose: oklch(0.55 0.18 18);             /* deep rose / berry */
+  --brand-rose: oklch(0.55 0.18 18); /* deep rose / berry */
   --brand-warm: oklch(0.93 0.025 75);
 
   --gradient-warm: linear-gradient(135deg, oklch(0.985 0.008 85), oklch(0.93 0.04 75));
@@ -161,7 +164,10 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }

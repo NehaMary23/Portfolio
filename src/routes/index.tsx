@@ -15,10 +15,13 @@ import {
   Mail,
   Target,
   Users,
+  X,
 } from "lucide-react";
 import heroLandscape from "@/assets/hero-landscape.png";
 import heroPortrait from "@/assets/hero-portrait.png";
 import nehaPhoto from "@/assets/neha-photo.jpeg";
+import basketballImg from "@/assets/achievement-basketball.jpg";
+import danceImg from "@/assets/achievement-dance.jpg";
 import { Layout } from "@/components/portfolio/Layout";
 
 export const Route = createFileRoute("/")({
@@ -86,8 +89,8 @@ const certs = [
 ];
 
 const achievements = [
-  { title: "Basketball Player", level: "State Level", desc: "Achieved 4th place at State Level representing the district." },
-  { title: "Dancer", level: "State Level", desc: "Achieved 3rd place at State Level Dance Competition." },
+  { title: "Basketball Player", level: "State Level", desc: "Achieved 4th place at State Level representing the district.", image: basketballImg },
+  { title: "Dancer", level: "State Level", desc: "Achieved 3rd place at State Level Dance Competition.", image: danceImg },
 ];
 
 const channels = [
@@ -101,6 +104,7 @@ function Index() {
   const [certPage, setCertPage] = useState(0);
   const certPageCount = Math.max(1, Math.ceil(certs.length / PAGE_SIZE));
   const visibleCerts = certs.slice(certPage * PAGE_SIZE, certPage * PAGE_SIZE + PAGE_SIZE);
+  const [openAchievement, setOpenAchievement] = useState<null | (typeof achievements)[number]>(null);
 
   return (
     <Layout>
@@ -401,11 +405,19 @@ function Index() {
 
             <div className="mt-8 grid md:grid-cols-2 gap-5">
               {achievements.map((a) => (
-                <div key={a.title} className="p-7 rounded-2xl bg-foreground text-background shadow-[var(--shadow-soft)]">
+                <button
+                  type="button"
+                  key={a.title}
+                  onClick={() => setOpenAchievement(a)}
+                  className="group text-left p-7 rounded-2xl bg-foreground text-background shadow-[var(--shadow-soft)] hover:opacity-95 transition relative overflow-hidden"
+                >
                   <span className="text-xs uppercase tracking-widest opacity-70">{a.level}</span>
                   <h4 className="mt-2 font-display text-2xl">{a.title}</h4>
                   <p className="mt-3 opacity-80">{a.desc}</p>
-                </div>
+                  <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold opacity-80 group-hover:opacity-100">
+                    View photo <ArrowUpRight className="h-3.5 w-3.5" />
+                  </span>
+                </button>
               ))}
             </div>
           </div>
@@ -444,6 +456,41 @@ function Index() {
           </div>
         </div>
       </section>
+
+      {/* ACHIEVEMENT LIGHTBOX */}
+      {openAchievement && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={openAchievement.title}
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-foreground/80 backdrop-blur-sm"
+          onClick={() => setOpenAchievement(null)}
+        >
+          <div
+            className="relative max-w-3xl w-full rounded-2xl overflow-hidden bg-card shadow-[var(--shadow-soft)]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              aria-label="Close"
+              onClick={() => setOpenAchievement(null)}
+              className="absolute top-3 right-3 z-10 h-9 w-9 rounded-full bg-background/90 hover:bg-background flex items-center justify-center shadow"
+            >
+              <X className="h-4 w-4" />
+            </button>
+            <img
+              src={openAchievement.image}
+              alt={openAchievement.title}
+              className="w-full max-h-[75vh] object-contain bg-secondary"
+            />
+            <div className="p-5">
+              <span className="text-xs uppercase tracking-widest text-muted-foreground">{openAchievement.level}</span>
+              <h4 className="mt-1 font-display text-2xl">{openAchievement.title}</h4>
+              <p className="mt-2 text-sm text-muted-foreground">{openAchievement.desc}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }

@@ -97,7 +97,7 @@ const channels = [
 ];
 
 function Index() {
-  const PAGE_SIZE = 9;
+  const PAGE_SIZE = 6;
   const [certPage, setCertPage] = useState(0);
   const certPageCount = Math.max(1, Math.ceil(certs.length / PAGE_SIZE));
   const visibleCerts = certs.slice(certPage * PAGE_SIZE, certPage * PAGE_SIZE + PAGE_SIZE);
@@ -381,7 +381,7 @@ function Index() {
             )}
           </div>
 
-          <div className="mt-10 grid grid-cols-3 gap-3 sm:gap-4">
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4">
             {visibleCerts.map((c) => (
               <div key={c} className="p-3 sm:p-6 rounded-2xl bg-card border border-border/60 shadow-[var(--shadow-card)] flex flex-col sm:flex-row gap-2 sm:gap-4 items-start">
                 <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-xl bg-secondary flex items-center justify-center shrink-0">

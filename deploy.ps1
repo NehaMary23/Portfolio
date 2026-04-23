@@ -4,6 +4,7 @@ cd dist/client
 
 # Patch wrangler.json to add main entry point and nodejs compat
 $config = Get-Content wrangler.json | ConvertFrom-Json
+$config | Add-Member -Force -NotePropertyName "name" -NotePropertyValue "neha-portfolio"
 $config | Add-Member -Force -NotePropertyName "main" -NotePropertyValue "server.js"
 $config | Add-Member -Force -NotePropertyName "compatibility_flags" -NotePropertyValue @("nodejs_compat")
 $config | ConvertTo-Json -Depth 100 | Set-Content wrangler.json

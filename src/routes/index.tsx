@@ -240,10 +240,19 @@ import certificate11 from "@/assets/certificates/certificate11.jpeg";
 import certificate12 from "@/assets/certificates/certificate12.jpeg";
 import certificate13 from "@/assets/certificates/certificate13.jpeg";
 import certificate14 from "@/assets/certificates/certificate14.jpeg";
+import certificate15 from "@/assets/certificates/certificate15.jpeg";
 const certs = [
   { name: "Web Developer Internship", image: certificate1 },
+  {
+    name: "NPTEL - Programming, Data Structures and Algorithms using Python (Elite)",
+    image: certificate15,
+  },
   { name: "IIT Guwahati Campus Immersion Programme", image: certificate2 },
-  { name: "Backend Frameworks & API Development Course", image: certificate3 },
+
+  {
+    name: "Backend Frameworks & API Development Course - L&T EduTech (First Class)",
+    image: certificate3,
+  },
   { name: "MERN Stack Course", image: certificate4 },
   { name: "Coding Competition", image: certificate5 },
   { name: "No Code / Low Code Workshop", image: certificate6 },
